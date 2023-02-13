@@ -9,6 +9,6 @@ const librosSchema = new Schema({
 })
 
 //Creamos el modelo
-const Libros = mongoose.model('database_wallabob', librosSchema, "libros");
+const Libros = mongoose.model('database_libros', librosSchema, "libros");
 
 module.exports = Libros;

@@ -10,6 +10,6 @@ const ropaSchema = new Schema({
 })
 
 //Creamos el modelo
-const Ropa = mongoose.model('database_wallabob', ropaSchema, "ropa");
+const Ropa = mongoose.model('database_ropa', ropaSchema, "ropa");
 
 module.exports = Ropa;
