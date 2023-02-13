@@ -50,7 +50,7 @@ router.get('/:id', async(req, res) => { //El id vendrá por el GET (barra de dir
         console.log('Se ha producido un error', error)
         res.render('detallejuegos_mesa', { //Mostraremos el error en la vista "detalle"
             error: true,
-            mensaje: 'Juegos_mesa no encontrado!'
+            mensaje: 'Juego de mesa no encontrado!'
         })
     }
 })
@@ -68,12 +68,12 @@ router.delete('/:id', async (req, res) => {
         if (!juegos_mesaDB) {
             res.json({ 
                 estado: false,
-                mensaje: 'No se puede eliminar el Pokémon.'
+                mensaje: 'No se puede eliminar el Juego de mesa.'
             })
         } else {
             res.json({
                 estado: true,
-                mensaje: 'Pokémon eliminado.'
+                mensaje: 'Juego de mesa eliminado.'
             })
         } 
     } catch (error) {
@@ -93,13 +93,13 @@ router.put('/:id', async (req, res) => {
         console.log(juegos_mesaDB)
         res.json({
             estado: true,
-            mensaje: 'Pokémon editado'
+            mensaje: 'Juego de mesa editado'
         })
     } catch (error) {
         console.log(error)
         res.json({
             estado: false,
-            mensaje: 'Problema al editar el Pokémon'
+            mensaje: 'Problema al editar el Juego de mesa'
         })
     }
 })

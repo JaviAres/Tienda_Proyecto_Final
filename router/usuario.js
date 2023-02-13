@@ -1,4 +1,3 @@
-
 const express = require('express');
 const router = express.Router();
 const Usuario = require('../models/usuario');
@@ -69,12 +68,12 @@ router.delete('/:id', async (req, res) => {
         if (!usuarioDB) {
             res.json({ 
                 estado: false,
-                mensaje: 'No se puede eliminar el Pokémon.'
+                mensaje: 'No se puede eliminar el usuario.'
             })
         } else {
             res.json({
                 estado: true,
-                mensaje: 'Pokémon eliminado.'
+                mensaje: 'Usuario eliminado.'
             })
         } 
     } catch (error) {
@@ -94,13 +93,13 @@ router.put('/:id', async (req, res) => {
         console.log(usuarioDB)
         res.json({
             estado: true,
-            mensaje: 'Pokémon editado'
+            mensaje: 'Usuario editado'
         })
     } catch (error) {
         console.log(error)
         res.json({
             estado: false,
-            mensaje: 'Problema al editar el Pokémon'
+            mensaje: 'Problema al editar el Usuario'
         })
     }
 })
