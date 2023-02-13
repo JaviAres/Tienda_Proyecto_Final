@@ -1,29 +1,33 @@
-<%- include("template/cabecera.ejs", {tituloWeb:'Pokedex'}) %>
+<%- include("template/header.ejs", {tituloWeb:'Wallablob-ropa'}) %>
 
   <div class="container">
-   <h1 style="text-align:center;">Pokedex</h1>
+   <h1 style="text-align:center;">Ropa</h1>
   
         <table class="table">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Tipo</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Talla</th>
                     <th scope="col">Descripción</th>
+                    <th scope="col">Precio</th>
                     <th scope="col">Acción</th>
+
+
                 </tr>
             </thead>
             <tbody>
-      <% if (arrayPokemon.length> 0) { %>
+      <% if (arrayRopa.length> 0) { %>
           <!--Haremos el foreach para recorrer el array-->
-          <% arrayPokemon.forEach(pokemon => { %>
+          <% arrayRopa.forEach(ropa => { %>
               <tr>
-                  <th scope="row"><%= pokemon.id %></th>
-                  <td><%= pokemon.nombre %></td>
-                  <td><%= pokemon.tipo %></td>
-                  <td><%= pokemon.descripcion %></td>
+                  <th scope="row"><%= ropa.id %></th>
+                  <td><%= ropa.imagen %></td>
+                  <td><%= ropa.talla %></td>
+                  <td><%= ropa.descripcion %></td>
+                  <td><%= ropa.precio %></td>
                   <td>
-                    <a class="btn btn-warning btn-sm" href="pokemon/<%= pokemon.id %>">Editar/Eliminar</a>
+                    <a class="btn btn-warning btn-sm" href="ropa/<%= ropa.id %>">Editar/Eliminar</a>
                     </td>
               </tr>
           <% }) %>
@@ -31,8 +35,13 @@
 </tbody>
 
         </table>
-        <a class="btn btn-success btn-block my-4" href="/pokemon/crearpokemon">Crear un nuevo pokemon</a>
-        <a class="btn btn-danger btn-block my-4" href="/">Volver al Menu</a>
+        <!--Solo visible para Admin-->
+        <a class="btn btn-warning btn-block my-4" href="/ropa/crearropa">Crear una nueva prenda</a>
+        <!--Fin-->
+        <!--Solo visible para usuario-->
+        <a class="btn btn-success btn-block my-4" href="#">Agregar a Carrito</a>
+        <!--Fin-->
+        <a class="btn btn-info btn-block my-4" href="/">Volver al Index</a>
     </div>
 
 
@@ -42,13 +51,13 @@
                 console.log(btnEliminar.dataset.id)
                 try {
                     // https://developer.mozilla.org/es/docs/Web/API/HTMLElement/dataset
-                    const data = await fetch(`/pokemon/${btnEliminar.dataset.id}`, {
+                    const data = await fetch(`/ropa/${btnEliminar.dataset.id}`, {
                         method: 'delete'
                     })
                     const res = await data.json()
                     console.log(res)
                     if (res.estado) {
-                        window.location.href = '/pokemon'
+                        window.location.href = '/ropa'
                     } else {
                         console.log(res)
                     }
