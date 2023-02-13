@@ -9,3 +9,7 @@ h1{
 #navbarselect:hover{
     color: black;
 }
+
+#imagenes_carrusel{
+    max-height: 600px;
+}
