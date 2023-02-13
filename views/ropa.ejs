@@ -29,6 +29,8 @@
                   <td>
                     <a class="btn btn-warning btn-sm" href="ropa/<%= ropa.id %>">Editar/Eliminar</a>
                     </td>
+
+                   
               </tr>
           <% }) %>
       <% } %>
@@ -42,7 +44,10 @@
         <a class="btn btn-success btn-block my-4" href="#">Agregar a Carrito</a>
         <!--Fin-->
         <a class="btn btn-info btn-block my-4" href="/">Volver al Index</a>
-    </div>
+    </div> 
+    
+    <!--Prueba imagen-->
+    <img src="/images/placeholder.png" class="img-fluid rounded-top" alt="placeholder">
 
 
 <script>
@@ -50,7 +55,6 @@
             btnEliminar.addEventListener('click', async () => {
                 console.log(btnEliminar.dataset.id)
                 try {
-                    // https://developer.mozilla.org/es/docs/Web/API/HTMLElement/dataset
                     const data = await fetch(`/ropa/${btnEliminar.dataset.id}`, {
                         method: 'delete'
                     })

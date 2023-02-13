@@ -32,6 +32,8 @@ app.set('view engine', 'ejs')
 
 app.use(express.static(__dirname+'/public'))
 
+
+//Routes
 app.use('/', require('./router/rutas'));
 app.use('/libros', require("./router/libros"))
 app.use('/ropa',require("./router/ropa"))
