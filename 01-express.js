@@ -33,9 +33,11 @@ app.set('view engine', 'ejs')
 app.use(express.static(__dirname+'/public'))
 
 app.use('/', require('./router/rutas'));
-app.use('/pokemon', require("./router/pokemon"))
-app.use('/entrenador',require("./router/entrenador"))
-app.use('/ciudad',require("./router/ciudad"))
+app.use('/libros', require("./router/libros"))
+app.use('/ropa',require("./router/ropa"))
+app.use('/usuario',require("./router/usuario"))
+app.use('/videojuegos',require("./router/videojuegos"))
+app.use('/juegos_mesa',require("./router/juegos_mesa"))
 app.use((req, res)=>{
     res.status(404).render("404",{tituloError:"Error 404",tituloDescripcion:"Pagina no existe manin"})
 })

@@ -9,6 +9,6 @@ const juegos_mesaSchema = new Schema({
 })
 
 //Creamos el modelo
-const Juegos_mesa = mongoose.model('database_wallabob', juegos_mesaSchema, "juegos_mesa");
+const Juegos_mesa = mongoose.model('databaseJuegos_mesa', juegos_mesaSchema, "juegos_mesa");
 
 module.exports = Juegos_mesa;

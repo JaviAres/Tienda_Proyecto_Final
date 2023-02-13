@@ -12,6 +12,6 @@ const usuarioSchema = new Schema({
 })
 
 //Creamos el modelo
-const Usuario = mongoose.model('database_wallabob', usuarioSchema, "usuario");
+const Usuario = mongoose.model('database_usuario', usuarioSchema, "usuario");
 
 module.exports = Usuario;

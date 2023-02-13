@@ -9,6 +9,6 @@ const videojuegosSchema = new Schema({
 })
 
 //Creamos el modelo
-const Videojuegos = mongoose.model('database_wallabob', videojuegosSchema, "videojuegos");
+const Videojuegos = mongoose.model('database_videojuegos', videojuegosSchema, "videojuegos");
 
 module.exports = Videojuegos;
