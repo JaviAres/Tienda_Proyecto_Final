@@ -50,12 +50,11 @@
     <img src="/images/placeholder.png" class="img-fluid rounded-top" alt="placeholder">
 
 
-<script>/*
+<script>
             const btnEliminar = document.querySelector('.btn-danger')
             btnEliminar.addEventListener('click', async () => {
                 console.log(btnEliminar.dataset.id)
                 try {
-                    // https://developer.mozilla.org/es/docs/Web/API/HTMLElement/dataset
                     const data = await fetch(`/ropa/${btnEliminar.dataset.id}`, {
                         method: 'delete'
                     })
@@ -69,7 +68,7 @@
                 } catch (error) {
                     console.log(error)
                 }
-            })*/
+            })
 </script>
 
 <%- include("template/footer.ejs") %>

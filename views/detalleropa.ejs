@@ -1,4 +1,4 @@
-<%- include("template/cabecera", {tituloWeb: 'Detalles de la Prenda' }) %>
+<%- include("template/header", {tituloWeb: 'Detalles de la Prenda' }) %>
     <div class="container">
         <h1 style="text-align: center;">Detalles de la Prenda</h1>
         <% if (error) { %>
@@ -53,16 +53,17 @@
     const formEditar = document.querySelector('#editar');
             formEditar.addEventListener('submit', async (e) => {
                 e.preventDefault()
-                const nombre = formEditar.elements['nombre'].value
-                const tipo = formEditar.elements['tipo'].value
+                const talla = formEditar.elements['tipo'].value
                 const descripcion = formEditar.elements['descripcion'].value
+                const precio = formEditar.elements['precio'].value
+                const imagen = formEditar.elements['imagen'].value
                 const id = formEditar.dataset.id
                 const data = await fetch(`/ropa/${id}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ nombre, tipo, descripcion })
+                    body: JSON.stringify({ talla, descripcion, precio, imagen })
                 })
                 const res = await data.json()
                 if (res.estado) {
