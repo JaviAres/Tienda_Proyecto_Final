@@ -1,0 +1,61 @@
+<%- include("template/cabecera.ejs", {tituloWeb:'Pokedex'}) %>
+
+  <div class="container">
+   <h1 style="text-align:center;">Pokedex</h1>
+  
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+      <% if (arrayPokemon.length> 0) { %>
+          <!--Haremos el foreach para recorrer el array-->
+          <% arrayPokemon.forEach(pokemon => { %>
+              <tr>
+                  <th scope="row"><%= pokemon.id %></th>
+                  <td><%= pokemon.nombre %></td>
+                  <td><%= pokemon.tipo %></td>
+                  <td><%= pokemon.descripcion %></td>
+                  <td>
+                    <a class="btn btn-warning btn-sm" href="pokemon/<%= pokemon.id %>">Editar/Eliminar</a>
+                    </td>
+              </tr>
+          <% }) %>
+      <% } %>
+</tbody>
+
+        </table>
+        <a class="btn btn-success btn-block my-4" href="/pokemon/crearpokemon">Crear un nuevo pokemon</a>
+        <a class="btn btn-danger btn-block my-4" href="/">Volver al Menu</a>
+    </div>
+
+
+<script>
+            const btnEliminar = document.querySelector('.btn-danger')
+            btnEliminar.addEventListener('click', async () => {
+                console.log(btnEliminar.dataset.id)
+                try {
+                    // https://developer.mozilla.org/es/docs/Web/API/HTMLElement/dataset
+                    const data = await fetch(`/pokemon/${btnEliminar.dataset.id}`, {
+                        method: 'delete'
+                    })
+                    const res = await data.json()
+                    console.log(res)
+                    if (res.estado) {
+                        window.location.href = '/pokemon'
+                    } else {
+                        console.log(res)
+                    }
+                } catch (error) {
+                    console.log(error)
+                }
+            })
+</script>
+
+<%- include("template/footer.ejs") %>
