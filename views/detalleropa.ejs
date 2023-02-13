@@ -1,29 +1,29 @@
-<%- include("template/cabecera", {tituloWeb: 'Detalles del Pokemon' }) %>
+<%- include("template/cabecera", {tituloWeb: 'Detalles de la Prenda' }) %>
     <div class="container">
-        <h1 style="text-align: center;">Detalles del Pokémon</h1>
+        <h1 style="text-align: center;">Detalles de la Prenda</h1>
         <% if (error) { %>
             <%= mensaje %> 
             <a 
-                href="/pokemon"
+                href="/ropa"
                 class="btn btn-dark btn-block my-2"
             >
                 Volver
             </a>
 <% } %>
 <% if (!error) { %>
-    <form id="editar" data-id="<%= pokemon.id %>">
-        <input type="text" value="<%= pokemon.nombre %>" class="form-control my-2" name="nombre"
-            id="nombreInput">
-        <input type="text" value="<%= pokemon.tipo %>" class="form-control my-2" name="tipo"
-            id="tipoInput">
-        <input type="text" value="<%= pokemon.descripcion %>" class="form-control my-2"
-            name="descripcion" id="descripcionInput">
+    <form id="editar" data-id="<%= ropa.id %>">
+        <input type="text" value="<%= ropa.imagen %>" class="form-control my-2" name="imagen"
+            id="imagenInput">
+        <input type="text" value="<%= ropa.talla %>" class="form-control my-2" name="talla"
+            id="tallaInput">
+        <input type="number" step="0.01" min="0"  value="<%= ropa.precio %>" class="form-control my-2"
+            name="precio" id="precioInput">
         <button class="btn btn-warning btn-sm" type="submit">
             Editar
         </button>
     </form>
     <hr>
-    <button class="btn btn-danger btn-sm" data-id="<%= pokemon.id %>">
+    <button class="btn btn-danger btn-sm" data-id="<%= ropa.id %>">
         Eliminar
     </button>
 <% } %>
@@ -35,13 +35,13 @@
         console.log(btnEliminar.dataset.id)
         try {
             // https://developer.mozilla.org/es/docs/Web/API/HTMLElement/dataset
-            const data = await fetch(`/pokemon/${btnEliminar.dataset.id}`, {
+            const data = await fetch(`/ropa/${btnEliminar.dataset.id}`, {
                 method: 'delete'
             })
             const res = await data.json()
             console.log(res)
             if (res.estado) {
-                window.location.href = '/pokemon'
+                window.location.href = '/ropa'
             } else {
                 console.log(res)
             }
@@ -57,7 +57,7 @@
                 const tipo = formEditar.elements['tipo'].value
                 const descripcion = formEditar.elements['descripcion'].value
                 const id = formEditar.dataset.id
-                const data = await fetch(`/pokemon/${id}`, {
+                const data = await fetch(`/ropa/${id}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
@@ -66,7 +66,7 @@
                 })
                 const res = await data.json()
                 if (res.estado) {
-                    window.location.href = '/pokemon'
+                    window.location.href = '/ropa'
                 } else {
                     console.log(res)
                 }
