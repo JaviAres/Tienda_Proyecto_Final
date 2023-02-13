@@ -29,6 +29,8 @@
                   <td>
                     <a class="btn btn-warning btn-sm" href="ropa/<%= ropa.id %>">Editar/Eliminar</a>
                     </td>
+
+                   
               </tr>
           <% }) %>
       <% } %>
@@ -42,10 +44,13 @@
         <a class="btn btn-success btn-block my-4" href="#">Agregar a Carrito</a>
         <!--Fin-->
         <a class="btn btn-info btn-block my-4" href="/">Volver al Index</a>
-    </div>
+    </div> 
+    
+    <!--Prueba imagen-->
+    <img src="/images/placeholder.png" class="img-fluid rounded-top" alt="placeholder">
 
 
-<script>
+<script>/*
             const btnEliminar = document.querySelector('.btn-danger')
             btnEliminar.addEventListener('click', async () => {
                 console.log(btnEliminar.dataset.id)
@@ -64,7 +69,7 @@
                 } catch (error) {
                     console.log(error)
                 }
-            })
+            })*/
 </script>
 
 <%- include("template/footer.ejs") %>
