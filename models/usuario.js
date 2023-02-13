@@ -6,7 +6,9 @@ const usuarioSchema = new Schema({
     talla: String,
     descripcion: String,
     precio:Number,
-    imagen:String
+    imagen:String,
+    tipoUsuario:Number,
+    email:String
 })
 
 //Creamos el modelo
