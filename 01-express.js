@@ -33,8 +33,8 @@ app.set('view engine', 'ejs')
 app.use(express.static(__dirname+'/public'))
 
 app.use('/', require('./router/rutas'));
-app.use('/pokemon', require("./router/libros"))
-app.use('/entrenador',require("./router/ropa"))
+app.use('/libros', require("./router/libros"))
+app.use('/ropa',require("./router/ropa"))
 app.use('/usuario',require("./router/usuario"))
 app.use('/videojuegos',require("./router/videojuegos"))
 app.use('/juegos_mesa',require("./router/juegos_mesa"))
