@@ -13,4 +13,11 @@ h1{
 #imagenes_carrusel{
     max-height: 600px;
     min-height: 600px;
+    object-fit: cover;
+    background-color: black;
+    opacity: 70%;
+}
+
+#carrusel{
+    background-color: black;
 }
