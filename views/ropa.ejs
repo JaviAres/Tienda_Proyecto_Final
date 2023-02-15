@@ -22,10 +22,10 @@
           <% arrayRopa.forEach(ropa => { %>
               <tr>
                   <th scope="row"><%= ropa.id %></th>
-                  <td><%= ropa.imagen %></td>
+                  <td><img src="/images/<%= ropa.imagen %>" class="img-fluid rounded-top" alt=""></td>
                   <td><%= ropa.talla %></td>
                   <td><%= ropa.descripcion %></td>
-                  <td><%= ropa.precio %></td>
+                  <td><%= ropa.precio %> €</td>
                   <td>
                     <a class="btn btn-warning btn-sm" href="ropa/<%= ropa.id %>">Editar/Eliminar</a>
                     </td>
