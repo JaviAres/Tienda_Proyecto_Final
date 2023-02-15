@@ -5,7 +5,8 @@ const videojuegosSchema = new Schema({
     titulo: String,
     descripcion: String,
     precio:Number,
-    imagen:String
+    defecto: String,
+    //imagen:String
 })
 
 //Creamos el modelo

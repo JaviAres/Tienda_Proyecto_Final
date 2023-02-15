@@ -29,9 +29,6 @@ router.get('/crearropa', (req, res) => {
     try {
         const ropaDB = new Ropa(body) //Creamos un nuevo Ropa, gracias al modelo
         await ropaDB.save() //Lo guardamos con .save(), gracias a Mongoose
-        
-       
-        
         res.redirect('/ropa') //Volvemos al listado
     } catch (error) {
         console.log('error', error)

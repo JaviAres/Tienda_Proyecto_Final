@@ -7,9 +7,10 @@
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Imagen</th>
+                    <!--<th scope="col">Imagen</th>-->
                     <th scope="col">Talla</th>
                     <th scope="col">Descripción</th>
+                    <th scope="col">Defecto</th>
                     <th scope="col">Precio</th>
                     <th scope="col">Acción</th>
 
@@ -22,13 +23,15 @@
           <% arrayRopa.forEach(ropa => { %>
               <tr>
                   <th scope="row"><%= ropa.id %></th>
-                  <td><img src="/images/<%= ropa.imagen %>" class="img-fluid rounded-top" alt=""></td>
+                  <!--<td><img src="/images/<%= /*ropa.imagen*/ %>" class="img-fluid rounded-top" alt=""></td>-->
                   <td><%= ropa.talla %></td>
                   <td><%= ropa.descripcion %></td>
+                  <td><%= ropa.defecto %></td>
                   <td><%= ropa.precio %> €</td>
                   <td>
-                    <a class="btn btn-warning btn-sm" href="ropa/<%= ropa.id %>">Editar/Eliminar</a>
-                    </td>
+                    <a class="btn btn-dark btn-sm" href="ropa/<%= ropa.id %>">Editar/Eliminar</a>
+                    <a class="btn btn-warning btn-sm" href="#">Agregar a Lista Reparación</a>   
+                </td>
 
                    
               </tr>
@@ -37,17 +40,9 @@
 </tbody>
 
         </table>
-        <!--Solo visible para Admin-->
-        <a class="btn btn-warning btn-block my-4" href="/ropa/crearropa">Crear una nueva prenda</a>
-        <!--Fin-->
-        <!--Solo visible para usuario-->
-        <a class="btn btn-success btn-block my-4" href="#">Agregar a Carrito</a>
-        <!--Fin-->
-        <a class="btn btn-info btn-block my-4" href="/">Volver al Index</a>
+        <a class="btn btn-success btn-block my-4" href="/ropa/crearropa">Crear una nueva prenda</a>
+        <a class="btn btn-success btn-block my-4" href="/">Volver al Index</a>
     </div> 
-    
-    <!--Prueba imagen-->
-    <img src="/images/placeholder.png" class="img-fluid rounded-top" alt="placeholder">
 
 
 <script>

@@ -4,8 +4,9 @@ const Schema = mongoose.Schema;
 const librosSchema = new Schema({
     titulo: String,
     descripcion: String,
+    defecto: String,
     precio:Number,
-    imagen:String
+    //imagen:String
 })
 
 //Creamos el modelo
