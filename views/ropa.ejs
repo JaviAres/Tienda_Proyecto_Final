@@ -30,7 +30,7 @@
                   <td><%= ropa.precio %> €</td>
                   <td>
                     <a class="btn btn-dark btn-sm" href="ropa/<%= ropa.id %>">Editar/Eliminar</a>
-                    <a class="btn btn-warning btn-sm" onclick="agregar_carrito('<%= ropa.id %>')">Agregar a Lista Reparación</a>   
+                    <a class="btn btn-warning btn-sm" onclick="agregar_carrito('<%= ropa.id %>,<%= ropa.talla %>,<%= ropa.descripcion %>,<%= ropa.defecto %>,<%= ropa.precio %>')">Agregar a Lista Reparación</a>   
                 </td>
 
                    
@@ -65,9 +65,16 @@
                 }
             })
 
-            function agregar_carrito(id_prenda){
-                id=id_prenda;
-                console.log(id_prenda);
+            function agregar_carrito(id_prenda,talla_prenda,descripcion_prenda,defecto_prenda,precio_prenda){
+                var id=id_prenda;
+                var talla=talla_prenda;
+                var descripcion=descripcion_prenda;
+                var defecto=defecto_prenda;
+                var precio=precio_prenda;
+                var prenda={'id' :id_prenda, 'talla' :talla_prenda, 'descripcion' :descripcion_prenda, 'defecto' :defecto_prenda, 'precio' :precio_prenda}
+                var datoPrenda=JSON.stringify(prenda);
+                console.log(datoPrenda);
+                localStorage.setItem("datoPrenda",datoPrenda);
             }
 </script>
 
