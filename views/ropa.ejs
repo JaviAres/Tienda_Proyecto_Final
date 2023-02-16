@@ -3,10 +3,10 @@
   <div class="container">
    <h1 style="text-align:center;">Ropa</h1>
     <img src="http://localhost:4000/images/img_cabecera" class="img-fluid rounded-top" alt="">
-        <table class="table">
+        <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">#</th>
+
                     <!--<th scope="col">Imagen</th>-->
                     <th scope="col">Talla</th>
                     <th scope="col">Descripción</th>
@@ -22,7 +22,7 @@
           <!--Haremos el foreach para recorrer el array-->
           <% arrayRopa.forEach(ropa => { %>
               <tr>
-                  <th scope="row"><%= ropa.id %></th>
+                  <!--<th scope="row"><%= ropa.id %></th>-->
                   <!--<td><img src="/images/<%= /*ropa.imagen*/ %>" class="img-fluid rounded-top" alt=""></td>-->
                   <td><%= ropa.talla %></td>
                   <td><%= ropa.descripcion %></td>
@@ -30,7 +30,7 @@
                   <td><%= ropa.precio %> €</td>
                   <td>
                     <a class="btn btn-dark btn-sm" href="ropa/<%= ropa.id %>">Editar/Eliminar</a>
-                    <a class="btn btn-warning btn-sm" href="#">Agregar a Lista Reparación</a>   
+                    <a class="btn btn-warning btn-sm" onclick="agregar_carrito('<%= ropa.id %>')">Agregar a Lista Reparación</a>   
                 </td>
 
                    
@@ -64,6 +64,11 @@
                     console.log(error)
                 }
             })
+
+            function agregar_carrito(id_prenda){
+                id=id_prenda;
+                console.log(id_prenda);
+            }
 </script>
 
 <%- include("template/footer.ejs") %>
