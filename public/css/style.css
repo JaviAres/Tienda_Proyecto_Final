@@ -44,3 +44,7 @@ thead{
 td{
     border-bottom: solid 4px var(--mainLigth); 
 }
+
+#icon_style{
+    font-size: 50px;
+}
