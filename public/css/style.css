@@ -37,3 +37,10 @@
     background-color: var(--mainLigth);
 }
 
+thead{
+    border-bottom: solid 4px var(--mainColor);
+}
+
+td{
+    border-bottom: solid 4px var(--mainLigth); 
+}
