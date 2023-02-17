@@ -1,6 +1,11 @@
+/*Variables*/
+:root {
+    --mainColor: #f2de7d;
+    --mainLigth: #ece2b0;
+  }
 
 #navbar,#footercontainer{
-    background-color: #f2de7d;
+    background-color: var(--mainColor);
 }
 
 #navbarselect:hover{
@@ -21,4 +26,18 @@
 
 #cartas{
 
+}
+
+/*Buttons*/
+#btn_style{
+    background-color: var(--mainColor);
+    border: solid 1px grey;
+}
+#btn_style:hover{
+    background-color: var(--mainLigth);
+}
+
+/*Detail separator*/
+.thead_style{
+    color: ;
 }
