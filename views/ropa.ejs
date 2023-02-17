@@ -1,8 +1,12 @@
 <%- include("template/header.ejs", {tituloWeb:'Wallablob-ropa'}) %>
 
   <div class="container">
+
     <h1 class="display-4 text-uppercase text-center">Ropa</h1>
     <img src="http://localhost:4000/images/img_cabecera" class="img-fluid rounded-top" alt="">
+
+   <h1 style="text-align:center;">Ropa</h1>
+
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
@@ -46,6 +50,7 @@
 
 
 <script>
+            const arrayCarrito=[];
             const btnEliminar = document.querySelector('.btn-danger')
             btnEliminar.addEventListener('click', async () => {
                 console.log(btnEliminar.dataset.id)
@@ -64,7 +69,7 @@
                     console.log(error)
                 }
             })
-
+            
             function agregar_carrito(id_prenda,talla_prenda,descripcion_prenda,defecto_prenda,precio_prenda){
                 var id=id_prenda;
                 var talla=talla_prenda;
@@ -72,10 +77,11 @@
                 var defecto=defecto_prenda;
                 var precio=precio_prenda;
                 var prenda={'id' :id, 'talla' :talla, 'descripcion' :descripcion, 'defecto' :defecto, 'precio' :precio}
-                var datoPrenda=JSON.stringify(prenda);
-                localStorage.setItem("datoPrenda",datoPrenda);
+                datoPrenda=JSON.stringify(prenda);
+                arrayCarrito.push(datoPrenda); 
+                localStorage.setItem("pedido_carrito",JSON.stringify(arrayCarrito));
                 console.log(datoPrenda);
-                
+                console.log(arrayCarrito);
             }
 </script>
 
