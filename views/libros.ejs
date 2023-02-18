@@ -43,7 +43,7 @@
                             <td>
                                 <a class="btn btn-dark btn-sm" href="libros/<%= libros.id %>">Editar/Eliminar</a>
                                 <a class="btn btn-warning btn-sm"
-                                    onclick="agregar_carrito('<%= libros.id %>','<%= libros.talla %>','<%= libros.descripcion %>','<%= libros.defecto %>','<%= libros.precio %>')">Agregar
+                                    onclick="agregar_carrito('<%= libros.id %>','<%= libros.titulo %>','<%= libros.autor %>','<%= libros.descripcion %>','<%= libros.defecto %>','<%= libros.precio %>')">Agregar
                                     a Lista Reparación</a>
                             </td>
 
@@ -81,18 +81,16 @@
             }
         })
 
-        function agregar_carrito(id_prenda, talla_prenda, descripcion_prenda, defecto_prenda, precio_prenda) {
-            var id = id_prenda;
-            var talla = talla_prenda;
-            var descripcion = descripcion_prenda;
-            var defecto = defecto_prenda;
-            var precio = precio_prenda;
-            var prenda = { "id": id, "talla": talla, "descripcion": descripcion, "defecto": defecto, "precio": precio }
-            console.log(prenda);
-            arrayCarrito.push(prenda);
-            localStorage.setItem("pedido_carrito", JSON.stringify(arrayCarrito));
-            console.log(prenda);
-            console.log(arrayCarrito);
+        function agregar_carrito(id_libro, titulo_libro,autor_libro, descripcion_libro, defecto_libro, precio_libro) {
+            var id = id_libro;
+            var titulo = titulo_libro;
+            var autor = autor_libro;
+            var descripcion = descripcion_libro;
+            var defecto = defecto_libro;
+            var precio = precio_libro;
+            var libro = { "id": id, "titulo": titulo, "autor":autor, "descripcion": descripcion, "defecto": defecto, "precio": precio }
+            arrayCarrito.push(libro);
+            localStorage.setItem("pedido_libros", JSON.stringify(arrayCarrito));
         }
     </script>
 
