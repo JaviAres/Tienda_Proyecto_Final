@@ -6,6 +6,7 @@
                 <b>Pedido Ropa</b>
             </td>
             <tr id="pedido_ropa"></tr>
+            <button onclick=tabla_carrito()></button>
         </tr>
     </thead>
     <thead>
@@ -31,12 +32,9 @@
     </thead>
 </table>
 <script>
-    window.addEventListener('DOMContentLoaded',tabla_carrito);
     function tabla_carrito(){
-        localStorage.getItem(pedido_carrito);
-    pedido_ropa=document.getElementById("pedido_ropa");
-    carrito_prenda=JSON.parse(pedido_carrito);
-    carrito_prenda.forEach(element => pedido_ropa.insertAdjacentHTML('beforebegin', `<tr><td>${carrito_prenda.talla}</td><td>${carrito_prenda.descripcion}</td></tr></td><td>${carrito_prenda.defecto}</td></tr></td><td>${carrito_prenda.precio}</td></tr>`));
+       carrito= localStorage.getItem(pedido_carrito);
+        console.log(carrito=JSON.parse(carrito))
     }
 </script>
 <%-include ("template/footer.ejs")%>
