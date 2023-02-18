@@ -37,7 +37,6 @@ app.use(express.static(__dirname+'/public'))
 app.use('/', require('./router/rutas'));
 app.use('/libros', require("./router/libros"))
 app.use('/ropa',require("./router/ropa"))
-app.use('/usuario',require("./router/usuario"))
 app.use('/videojuegos',require("./router/videojuegos"))
 app.use('/juegos_mesa',require("./router/juegos_mesa"))
 

@@ -3,10 +3,10 @@ const Schema = mongoose.Schema;
 
 const librosSchema = new Schema({
     titulo: String,
+    autor: String,
     descripcion: String,
     defecto: String,
     precio:Number,
-    //imagen:String
 })
 
 //Creamos el modelo
