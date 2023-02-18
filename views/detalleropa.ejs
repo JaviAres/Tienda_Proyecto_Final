@@ -12,8 +12,6 @@
 <% } %>
 <% if (!error) { %>
     <form id="editar" data-id="<%= ropa.id %>">
-        <!--<input type="text" value="<%= /*ropa.imagen*/ %>" class="form-control my-2" name="imagen"
-            id="imagenInput">-->
         <label class="fw-bold">Talla</label>
         <input type="text" value="<%= ropa.talla %>" class="form-control my-2" name="talla"
             id="tallaInput">
@@ -41,7 +39,6 @@
     btnEliminar.addEventListener('click', async () => {
         console.log(btnEliminar.dataset.id)
         try {
-            // https://developer.mozilla.org/es/docs/Web/API/HTMLElement/dataset
             const data = await fetch(`/ropa/${btnEliminar.dataset.id}`, {
                 method: 'delete'
             })
@@ -64,14 +61,13 @@
         const descripcion = formEditar.elements['descripcion'].value
         const defecto = formEditar.elements['defecto'].value
         const precio = formEditar.elements['precio'].value
-        /*const imagen = formEditar.elements['imagen'].value*/
         const id = formEditar.dataset.id
         const data = await fetch(`/ropa/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ talla, descripcion, defecto, precio/*, imagen*/ })
+            body: JSON.stringify({ talla, descripcion, defecto, precio})
         })
         const res = await data.json()
         if (res.estado) {
