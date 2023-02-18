@@ -87,11 +87,11 @@
             var descripcion = descripcion_prenda;
             var defecto = defecto_prenda;
             var precio = precio_prenda;
-            var prenda = { 'id': id, 'talla': talla, 'descripcion': descripcion, 'defecto': defecto, 'precio': precio }
-            datoPrenda = JSON.stringify(prenda);
-            arrayCarrito.push(datoPrenda);
+            var prenda = { "id": id, "talla": talla, "descripcion": descripcion, "defecto": defecto, "precio": precio }
+            console.log(prenda);
+            arrayCarrito.push(prenda);
             localStorage.setItem("pedido_carrito", JSON.stringify(arrayCarrito));
-            console.log(datoPrenda);
+            console.log(prenda);
             console.log(arrayCarrito);
         }
     </script>

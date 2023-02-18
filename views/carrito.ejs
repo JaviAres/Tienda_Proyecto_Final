@@ -1,40 +1,47 @@
 <%- include ("template/header.ejs",{tituloWeb: "Carrito"})%>
-<table>
-    <thead>
-        <tr>
-            <td>
-                <b>Pedido Ropa</b>
-            </td>
-            <tr id="pedido_ropa"></tr>
-            <button onclick=tabla_carrito()></button>
-        </tr>
-    </thead>
-    <thead>
-        <tr>
-            <td>
-                <b>Pedido Libros</b>
-            </td>
-        </tr>
-    </thead>
-    <thead>
-        <tr>
-            <td>
-                <b>Pedido Videojuegos</b>
-            </td>
-        </tr>
-    </thead>
-    <thead>
-        <tr>
-            <td>
-                <b>Pedido Juegos de Mesa</b>
-            </td>
-        </tr>
-    </thead>
-</table>
+<div class="container-fluid">
+    <div class="row">
+        <h1>ROPITAS</h1>
+    </div>
+    <div class="row">
+        <div class="col">
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Talla</th>
+                <th>Descripcion</th>
+                <th>Defecto</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody id="tabla_prendas">
+        </tbody>
+    </table>
+        </div>
+        <div class="col">
+            <h1>PRECIOO</h1>
+        </div>
+    </div>
+</div>
 <script>
-    function tabla_carrito(){
-       carrito= localStorage.getItem(pedido_carrito);
-        console.log(carrito=JSON.parse(carrito))
-    }
+    a=localStorage.getItem('pedido_carrito');
+    carrito_parseado=JSON.parse(a);
+
+    tabla_carrito(carrito_parseado);
+   function tabla_carrito(carrito){
+		var tabla = document.getElementById('tabla_prendas')
+        
+		for (var i = 0; i < carrito.length; i++){
+			var row = `<tr>
+							<td>${carrito[i].talla}</td>
+							<td>${carrito[i].descripcion}</td>
+							<td>${carrito[i].defecto}</td>
+                            <td>${carrito[i].precio}</td>
+					  </tr>`
+			tabla.innerHTML += row
+
+
+		}
+	}
 </script>
 <%-include ("template/footer.ejs")%>
