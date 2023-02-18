@@ -7,7 +7,6 @@ const ropaSchema = new Schema({
     descripcion: String,
     defecto: String,
     precio:Number,
-    //imagen:String
 })
 
 //Creamos el modelo

@@ -10,8 +10,6 @@
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
-
-                    <!--<th scope="col">Imagen</th>-->
                     <th scope="col" class="display-6">Talla</th>
                     <th scope="col" class="display-6">Descripción</th>
                     <th scope="col" class="display-6">Defecto</th>
@@ -26,8 +24,6 @@
                     <!--Haremos el foreach para recorrer el array-->
                     <% arrayRopa.forEach(ropa=> { %>
                         <tr>
-                            <!--<th scope="row"><%= ropa.id %></th>-->
-                            <!--<td><img src="/images/<%= /*ropa.imagen*/ %>" class="img-fluid rounded-top" alt=""></td>-->
                             <td class="fw-bold">
                                 <%= ropa.talla %>
                             </td>
@@ -55,7 +51,7 @@
 
         </table>
         <a class="btn btn-block my-4" id="btn_style" href="/ropa/crearropa">Crear nueva prenda</a>
-        <a class="btn btn-block my-4" id="btn_style" href="/">Volver</a>
+        <a class="btn btn-block my-4" id="btn_style" href="/main">Volver</a>
     </div>
 
 
