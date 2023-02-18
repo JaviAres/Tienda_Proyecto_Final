@@ -6,7 +6,6 @@ const juegos_mesaSchema = new Schema({
     descripcion: String,
     precio:Number,
     defecto: String,
-    //imagen:String
 })
 
 //Creamos el modelo

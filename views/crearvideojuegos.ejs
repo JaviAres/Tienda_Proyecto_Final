@@ -1,11 +1,9 @@
 <%- include("template/header", {tituloWeb: 'Nueva Prenda' }) %>
     <div class="container">
-        <h1 class="display-4 text-uppercase text-center mt-5 mb-5">Añadir nuevo libro</h1>
-        <form action="/libros" class="my-2" method="POST">
+        <h1 class="display-4 text-uppercase text-center mt-5 mb-5">Añadir nuevo videojuego</h1>
+        <form action="/videojuegos" class="my-2" method="POST">
             <label class="fw-bold">Título</label>
             <input type="text" placeholder="Título" class="form-control my-2" name="titulo">
-            <label class="fw-bold">Autor</label>
-            <input type="text" placeholder="Autor" class="form-control my-2" name="autor">
             <label class="fw-bold">Descripción</label>
             <input type="text" placeholder="Descripción" class="form-control my-2" name="descripcion"> 
             <label class="fw-bold">Defecto</label>
@@ -14,7 +12,7 @@
             <input type="number" placeholder="Precio" class="form-control my-2" step="0.01" min="0" name="precio">
             <br>
             <button type="submit" class="btn btn-dark btn-block">Agregar</button>
-            <a class="btn btn-danger btn-block my-4" href="/libros">Cancelar</a>
+            <a class="btn btn-danger btn-block my-4" href="/videojuegos">Cancelar</a>
         </form>
     </div>
         
