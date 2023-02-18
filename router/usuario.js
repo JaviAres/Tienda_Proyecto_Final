@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Usuario = require('../models/usuario');
-
+/*
 router.get('/', async (req, res) => {
     try {
         //Le pondremos arrayUsuarioDB para diferenciar
@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
 router.get('/crearusuario', (req, res) => {
     res.render('crearusuario'); //nueva vista que llamaremos Crear
  })
-
+*/
  router.post('/', async (req, res) => {
     const body = req.body //Gracias al body parser, de esta forma
     //podremos recuperar todo lo que viene del body
@@ -34,6 +34,7 @@ router.get('/crearusuario', (req, res) => {
         console.log('error', error)
     }
 })
+/*
 router.get('/:id', async(req, res) => { //El id vendrá por el GET (barra de direcciones)
     const id = req.params.id //Recordemos que en la plantilla "usuario.ejs" le pusimos
     //a este campo usuario.id, por eso lo llamados con params.id
@@ -80,7 +81,7 @@ router.delete('/:id', async (req, res) => {
         console.log(error)
     }
 })
-
+*/
 router.put('/:id', async (req, res) => {
     const id = req.params.id;
     const body = req.body;

@@ -10,4 +10,9 @@ router.get('/carrito', (req, res) => {
     res.render("carrito", { titulo: "mi titulo dinámico" })
 })
 
+router.get('/main', (req, res) => {
+    res.render("main", { titulo: "mi titulo dinámico" })
+})
+
+
 module.exports = router;
