@@ -4,9 +4,6 @@ const Libros = require('../models/libros');
 
 router.get('/', async (req, res) => {
     try {
-        //Le pondremos arrayLibrosDB para diferenciar
-        //los datos que vienen de la base de datos
-        //con respecto al arrayLibros que tenemos EN LA VISTA
         const arrayLibrosDB = await Libros.find();
         console.log(arrayLibrosDB);
         res.render("libros", { 
@@ -19,30 +16,26 @@ router.get('/', async (req, res) => {
 
 
 router.get('/crearlibros', (req, res) => {
-    res.render('crearlibros'); //nueva vista que llamaremos Crear
+    res.render('crearlibros'); 
  })
 
  router.post('/', async (req, res) => {
-    const body = req.body //Gracias al body parser, de esta forma
-    //podremos recuperar todo lo que viene del body
-    console.log(body) //Para comprobarlo por pantalla
+    const body = req.body 
+    console.log(body)
     try {
-        const librosDB = new Libros(body) //Creamos un nuevo Libros, gracias al modelo
-        await librosDB.save() //Lo guardamos con .save(), gracias a Mongoose
+        const librosDB = new Libros(body) //Creamos un nuevo Libros
+        await librosDB.save() //Lo guardamos con .save()
         res.redirect('/libros') //Volvemos al listado
     } catch (error) {
         console.log('error', error)
     }
 })
-router.get('/:id', async(req, res) => { //El id vendrá por el GET (barra de direcciones)
-    const id = req.params.id //Recordemos que en la plantilla "libros.ejs" le pusimos
-    //a este campo libros.id, por eso lo llamados con params.id
+router.get('/:id', async(req, res) => { 
+    const id = req.params.id 
     try {
-        const librosDB = await Libros.findOne({ _id: id }) //_id porque así lo indica Mongo
-							//Esta variable “Libros” está definida arriba con el “require”
-        //Buscamos con Mongoose un único documento que coincida con el id indicado
+        const librosDB = await Libros.findOne({ _id: id }) 
         console.log(librosDB) //Para probarlo por consola
-        res.render('detallelibros', { //Para mostrar el objeto en la vista "detalle", que tenemos que crear
+        res.render('detallelibros', { //Para mostrar el objeto en la vista "detalle"
             libros: librosDB,
             error: false
         })
@@ -59,12 +52,8 @@ router.delete('/:id', async (req, res) => {
     const id = req.params.id;
     console.log('id desde backend', id)
     try {
-        //En la documentación de Mongoose podremos encontrar la
-        //siguiente función para eliminar
         const librosDB = await Libros.findByIdAndDelete({ _id: id });
         console.log(librosDB)
-        // https://stackoverflow.com/questions/27202075/expressjs-res-redirect-not-working-as-expected
-        // res.redirect('/libros') //Esto daría un error, tal y como podemos ver arriba
         if (!librosDB) {
             res.json({ 
                 estado: false,
