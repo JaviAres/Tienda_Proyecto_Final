@@ -74,6 +74,9 @@
             </div>
             <div class="col-sm-6  col-lg-3">
                 <h2 class="display-6 text-uppercase ms-5 mt-2 mb-5">Precio Reparación</h2>
+                <div id="precio_total">
+
+                </div>
             </div>
         </div>
     </div>
@@ -91,6 +94,7 @@
     tabla_libros(libros_parseado);
     tabla_videojuegos(videojuegos_parseado);
     tabla_juegomesa(juegomesa_parseado);
+    precio_total(ropa_parseada,libros_parseado,videojuegos_parseado,juegomesa_parseado);
    function tabla_ropa(carrito){
 		var tabla = document.getElementById('tabla_prendas')
         
@@ -139,7 +143,6 @@
 	}
     function tabla_juegomesa(carrito){
 		var tabla = document.getElementById('tabla_juegomesa')
-        
 		for (var i = 0; i < carrito.length; i++){
 			var row = `<tr>
 							<td>${carrito[i].titulo}</td>
@@ -151,6 +154,29 @@
 
 
 		}
+	}
+    function precio_total(ropa,libros,videojuegos,juegos_mesa){
+		var total = document.getElementById('precio_total')
+        var precio_total=0;
+        console.log(ropa.id);
+		ropa.forEach(element => {
+            precio_total+=parseFloat(ropa.precio);
+            console.log(typeof(ropa.precio));
+        });
+       /* libros.forEach(element => {
+            precio_total+=parseFloat(libros.precio);
+            
+        });
+        videojuegos.forEach(element => {
+            precio_total+=parseFloat(videojuegos.precio);
+            
+        });
+        juegos_mesa.forEach(element => {
+            precio_total+=parseFloat(juegos_mesa.precio);
+            
+        });*/
+        total.innerHTML=precio_total;
+
 	}
 </script>
 <%-include ("template/footer.ejs")%>
