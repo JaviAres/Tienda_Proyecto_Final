@@ -1,11 +1,11 @@
 <%- include ("template/header.ejs",{tituloWeb: "Carrito" })%>
     <div class="container-fluid">
+
         <div class="row">
-            <div class="col col-sm-6 col-lg-8" id="lista_carrito">
-                
-        <div class="row">
-            <h2 class="display-6 text-uppercase text-decoration-underline mt-2 mb-1">Ropa</h2>
-        </div>
+            <div class="col col-sm-6 col-lg-8" id="lista_carrito">  
+                <div class="row">
+                    <h2 class="display-6 text-uppercase text-decoration-underline mt-2 mb-1">Ropa</h2>
+                 </div>
                 <div class="row">
                     <table class="table table-striped">
                         <thead class="thead-dark">
@@ -75,28 +75,32 @@
             </div>
             <div class="col-sm-6  col-lg-3">
                 <h2 class="display-6 text-uppercase ms-5 mt-2 mb-5">Precio Reparación</h2>
+                <div id="precio_total">
+
+                </div>
             </div>
         </div>
     </div>
-    </div>
-    <script>
-        ropa = localStorage.getItem('pedido_ropa');
-        libros = localStorage.getItem('pedido_libros');
-        videojuegos = localStorage.getItem('pedido_videojuegos');
-        juegosmesa = localStorage.getItem('pedido_juegomesa');
-        ropa_parseada = JSON.parse(ropa);
-        libros_parseado = JSON.parse(libros);
-        videojuegos_parseado = JSON.parse(videojuegos);
-        juegomesa_parseado = JSON.parse(juegosmesa);
-        tabla_ropa(ropa_parseada);
-        tabla_libros(libros_parseado);
-        tabla_videojuegos(videojuegos_parseado);
-        tabla_juegomesa(juegomesa_parseado);
-        function tabla_ropa(carrito) {
-            var tabla = document.getElementById('tabla_prendas')
-
-            for (var i = 0; i < carrito.length; i++) {
-                var row = `<tr>
+</div>
+<script>
+    ropa=localStorage.getItem('pedido_ropa');
+    libros=localStorage.getItem('pedido_libros');
+    videojuegos=localStorage.getItem('pedido_videojuegos');
+    juegosmesa=localStorage.getItem('pedido_juegomesa');
+    ropa_parseada=JSON.parse(ropa);
+    libros_parseado=JSON.parse(libros);
+    videojuegos_parseado=JSON.parse(videojuegos);
+    juegomesa_parseado=JSON.parse(juegosmesa);
+    tabla_ropa(ropa_parseada);
+    tabla_libros(libros_parseado);
+    tabla_videojuegos(videojuegos_parseado);
+    tabla_juegomesa(juegomesa_parseado);
+    precio_total(ropa_parseada,libros_parseado,videojuegos_parseado,juegomesa_parseado);
+   function tabla_ropa(carrito){
+		var tabla = document.getElementById('tabla_prendas')
+        
+		for (var i = 0; i < carrito.length; i++){
+			var row = `<tr>
 							<td>${carrito[i].talla}</td>
 							<td>${carrito[i].descripcion}</td>
 							<td class="fst-italic">${carrito[i].defecto}</td>
@@ -151,7 +155,30 @@
                 tabla.innerHTML += row
 
 
-            }
-        }
-    </script>
-    <%-include ("template/footer.ejs")%>
+		}
+	}
+    function precio_total(ropa,libros,videojuegos,juegos_mesa){
+		var total = document.getElementById('precio_total')
+        var precio_total=0;
+        console.log(ropa.id);
+		ropa.forEach(element => {
+            precio_total+=parseFloat(ropa.precio);
+            console.log(typeof(ropa.precio));
+        });
+       /* libros.forEach(element => {
+            precio_total+=parseFloat(libros.precio);
+            
+        });
+        videojuegos.forEach(element => {
+            precio_total+=parseFloat(videojuegos.precio);
+            
+        });
+        juegos_mesa.forEach(element => {
+            precio_total+=parseFloat(juegos_mesa.precio);
+            
+        });*/
+        total.innerHTML=precio_total;
+
+	}
+</script>
+<%-include ("template/footer.ejs")%>
