@@ -76,12 +76,31 @@
             <div class="col-sm-6  col-lg-3">
                 <h2 class="display-6 text-uppercase ms-5 mt-2 mb-5">Precio Reparación</h2>
                 <div id="precio_total">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#envioExito" id="boton-reserva">Enviar a Reparar</button>
+                </div>
 
                 </div>
             </div>
         </div>
     </div>
 </div>
+   <!-- Modal para reservas con exito -->
+   <div class="modal fade" id="envioExito" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Recibido</h5>
+        </div>
+        <div class="modal-body">
+          Se ha generado un ticket para el envio de los objetos a arreglar.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary"> <a href="/main">Volver A Inicio</a> 
+        </button>
+        </div>
+      </div>
+    </div>
+  </div>
 <script>
     ropa=localStorage.getItem('pedido_ropa');
     libros=localStorage.getItem('pedido_libros');
