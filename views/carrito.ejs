@@ -109,107 +109,144 @@
     ropa_parseada=JSON.parse(ropa);
     libros_parseado=JSON.parse(libros);
     videojuegos_parseado=JSON.parse(videojuegos);
-    juegomesa_parseado=JSON.parse(juegosmesa);
+    juegomesa_parseado=JSON.parse(juegosmesa);  
+   /*prueba(libros_parseado);
+    function prueba(prueba){
+
+        if(prueba===null){
+            console.log("noesta");
+        }else{
+            console.log("esta");
+        }
+    } */
+    
     tabla_ropa(ropa_parseada);
     tabla_libros(libros_parseado);
     tabla_videojuegos(videojuegos_parseado);
     tabla_juegomesa(juegomesa_parseado);
-    console.log(libros_parseado[0].precio);
-    console.log(typeof juegomesa_parseado[0].precio);
-    console.log(typeof parseFloat(juegomesa_parseado[0].precio));
-    console.log(parseFloat(juegomesa_parseado[0].precio)+parseFloat(videojuegos_parseado[0].precio))
     suma_total(ropa_parseada,libros_parseado,videojuegos_parseado,juegomesa_parseado);
+  
    function tabla_ropa(carrito){
 		var tabla = document.getElementById('tabla_prendas')
-        
-		for (var i = 0; i < carrito.length; i++){
-			var row = `<tr>
-							<td>${carrito[i].talla}</td>
-							<td>${carrito[i].descripcion}</td>
-							<td class="fst-italic">${carrito[i].defecto}</td>
-                            <td class="fw-bold">${carrito[i].precio} €</td>
-					  </tr>`
-                tabla.innerHTML += row
+        if(carrito===null){
+            tabla.innerHTML=`<div> No Procede <div>`;
+        }else{
+                for (var i = 0; i < carrito.length; i++){
+                var row = `<tr>
+                                <td>${carrito[i].talla}</td>
+                                <td>${carrito[i].descripcion}</td>
+                                <td class="fst-italic">${carrito[i].defecto}</td>
+                                <td class="fw-bold">${carrito[i].precio} €</td>
+                        </tr>`
+                    tabla.innerHTML += row
 
 
+                }
             }
         }
         function tabla_libros(carrito) {
             var tabla = document.getElementById('tabla_libros')
+            if(carrito===null){
+            tabla.innerHTML=`<div> No Procede <div>`;
+        }else{
+                for (var i = 0; i < carrito.length; i++) {
+                    var row = `<tr>
+                                <td>${carrito[i].titulo}</td>
+                                <td>${carrito[i].autor}</td>
+                                <td td style="width:25%; font-size: 12px;">${carrito[i].descripcion}</td>
+                                <td class="fst-italic">${carrito[i].defecto}</td>
+                                <td class="fw-bold">${carrito[i].precio} €</td>
+                        </tr>`
+                    tabla.innerHTML += row
 
-            for (var i = 0; i < carrito.length; i++) {
-                var row = `<tr>
-							<td>${carrito[i].titulo}</td>
-                            <td>${carrito[i].autor}</td>
-							<td td style="width:25%; font-size: 12px;">${carrito[i].descripcion}</td>
-							<td class="fst-italic">${carrito[i].defecto}</td>
-                            <td class="fw-bold">${carrito[i].precio} €</td>
-					  </tr>`
-                tabla.innerHTML += row
 
-
+                }
             }
         }
         function tabla_videojuegos(carrito) {
             var tabla = document.getElementById('tabla_videojuegos')
-            if(carrito.length>0){
-            for (var i = 0; i < carrito.length; i++) {
-                var row = `<tr>
-							<td>${carrito[i].titulo}</td>
-							<td td style="width:25%; font-size: 12px;">${carrito[i].descripcion}</td>
-							<td class="fst-italic">${carrito[i].defecto}</td>
-                            <td class="fw-bold">${carrito[i].precio} €</td>
-					  </tr>`
-                tabla.innerHTML += row
+            if(carrito===null){
+            tabla.innerHTML=`<div> No Procede <div>`;
+        }else{
+                for (var i = 0; i < carrito.length; i++) {
+                    var row = `<tr>
+                                <td>${carrito[i].titulo}</td>
+                                <td td style="width:25%; font-size: 12px;">${carrito[i].descripcion}</td>
+                                <td class="fst-italic">${carrito[i].defecto}</td>
+                                <td class="fw-bold">${carrito[i].precio} €</td>
+                        </tr>`
+                    tabla.innerHTML += row
 
-                
-                     }
-         }else{
-                }
+                    
+                        }
+                    }
         }
         function tabla_juegomesa(carrito) {
             var tabla = document.getElementById('tabla_juegomesa')
+            if(carrito===null){
+            tabla.innerHTML=`<div> No Procede <div>`;
+        }else{
+                for (var i = 0; i < carrito.length; i++) {
+                    var row = `<tr>
+                                <td>${carrito[i].titulo}</td>
+                                <td td style="width:25%; font-size: 12px;">${carrito[i].descripcion}</td>
+                                <td class="fst-italic">${carrito[i].defecto}</td>
+                                <td class="fw-bold">${carrito[i].precio} €</td>
+                        </tr>`
+                    tabla.innerHTML += row
 
-            for (var i = 0; i < carrito.length; i++) {
-                var row = `<tr>
-							<td>${carrito[i].titulo}</td>
-							<td td style="width:25%; font-size: 12px;">${carrito[i].descripcion}</td>
-							<td class="fst-italic">${carrito[i].defecto}</td>
-                            <td class="fw-bold">${carrito[i].precio} €</td>
-					  </tr>`
-                tabla.innerHTML += row
 
-
-		}
+            }
+        }
 	}
 
     function suma_total(ropa_parseada,libros_parseado,videojuegos_parseado,juegomesa_parseado){
         var precio_total=document.getElementById("precio_total");
        
         var precio_suma=0;
-
+        /* condicional ropa*/
+        if(ropa_parseada===null){
+            precio_suma+=0;
+        }else{
         for (var i = 0; i < ropa_parseada.length; i++) {
 
             precio_suma+=parseFloat(ropa_parseada[i].precio);
 
 		}
+    }
+    /*condicional libros*/
+    if(libros_parseado===null){
+            precio_suma+=0;
+        }else{
         for (var i = 0; i < libros_parseado.length; i++) {
 
         precio_suma+=parseFloat(libros_parseado[i].precio);
 
         }
+    }
+    /*condicional videojuegos*/
+    if(videojuegos_parseado===null){
+            precio_suma+=0;
+        }else{
         for (var i = 0; i < videojuegos_parseado.length; i++) {
 
         precio_suma+=parseFloat(videojuegos_parseado[i].precio);
 
         }
-        for (var i = 0; i < juegomesa_parseado.length; i++) {
+    }
+    /*condicional DnD*/
+    if(juegomesa_parseado===null){
+            precio_suma+=0;
+        }else{
+            for (var i = 0; i < juegomesa_parseado.length; i++) {
 
-        precio_suma+=parseFloat(juegomesa_parseado[i].precio);
+            precio_suma+=parseFloat(juegomesa_parseado[i].precio);
 
-        }
-        div_suma=`<div> ${precio_suma}</div>`
-        precio_total.innerHTML+=div_suma;
+            }
+           
+    } 
+            div_suma=`<div> ${precio_suma}</div>`
+            precio_total.innerHTML+=div_suma;
     }
 </script>
 <%-include ("template/footer.ejs")%>
