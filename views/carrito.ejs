@@ -95,7 +95,11 @@
     tabla_libros(libros_parseado);
     tabla_videojuegos(videojuegos_parseado);
     tabla_juegomesa(juegomesa_parseado);
-    precio_total(ropa_parseada,libros_parseado,videojuegos_parseado,juegomesa_parseado);
+    console.log(libros_parseado[0].precio);
+    console.log(typeof juegomesa_parseado[0].precio);
+    console.log(typeof parseFloat(juegomesa_parseado[0].precio));
+    console.log(parseFloat(juegomesa_parseado[0].precio)+parseFloat(videojuegos_parseado[0].precio))
+    suma_total(ropa_parseada,libros_parseado,videojuegos_parseado,juegomesa_parseado);
    function tabla_ropa(carrito){
 		var tabla = document.getElementById('tabla_prendas')
         
@@ -129,7 +133,7 @@
         }
         function tabla_videojuegos(carrito) {
             var tabla = document.getElementById('tabla_videojuegos')
-
+            if(carrito.length>0){
             for (var i = 0; i < carrito.length; i++) {
                 var row = `<tr>
 							<td>${carrito[i].titulo}</td>
@@ -139,8 +143,10 @@
 					  </tr>`
                 tabla.innerHTML += row
 
-
-            }
+                
+                     }
+         }else{
+                }
         }
         function tabla_juegomesa(carrito) {
             var tabla = document.getElementById('tabla_juegomesa')
@@ -157,28 +163,34 @@
 
 		}
 	}
-    function precio_total(ropa,libros,videojuegos,juegos_mesa){
-		var total = document.getElementById('precio_total')
-        var precio_total=0;
-        console.log(ropa.id);
-		ropa.forEach(element => {
-            precio_total+=parseFloat(ropa.precio);
-            console.log(typeof(ropa.precio));
-        });
-       /* libros.forEach(element => {
-            precio_total+=parseFloat(libros.precio);
-            
-        });
-        videojuegos.forEach(element => {
-            precio_total+=parseFloat(videojuegos.precio);
-            
-        });
-        juegos_mesa.forEach(element => {
-            precio_total+=parseFloat(juegos_mesa.precio);
-            
-        });*/
-        total.innerHTML=precio_total;
 
-	}
+    function suma_total(ropa_parseada,libros_parseado,videojuegos_parseado,juegomesa_parseado){
+        var precio_total=document.getElementById("precio_total");
+       
+        var precio_suma=0;
+
+        for (var i = 0; i < ropa_parseada.length; i++) {
+
+            precio_suma+=parseFloat(ropa_parseada[i].precio);
+
+		}
+        for (var i = 0; i < libros_parseado.length; i++) {
+
+        precio_suma+=parseFloat(libros_parseado[i].precio);
+
+        }
+        for (var i = 0; i < videojuegos_parseado.length; i++) {
+
+        precio_suma+=parseFloat(videojuegos_parseado[i].precio);
+
+        }
+        for (var i = 0; i < juegomesa_parseado.length; i++) {
+
+        precio_suma+=parseFloat(juegomesa_parseado[i].precio);
+
+        }
+        div_suma=`<div> ${precio_suma}</div>`
+        precio_total.innerHTML+=div_suma;
+    }
 </script>
 <%-include ("template/footer.ejs")%>
