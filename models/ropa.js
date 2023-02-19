@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ropaSchema = new Schema({
-    prenda: String,
     talla: String,
     descripcion: String,
     defecto: String,
