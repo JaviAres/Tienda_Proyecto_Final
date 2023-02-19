@@ -26,7 +26,7 @@
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
-                    <th class="display-6">Titulo</th>
+                    <th class="display-6">Titutlo</th>
                     <th class="display-6">Autor</th>
                     <th class="display-6">Descripción</th>
                     <th class="display-6">Defecto</th>
@@ -34,40 +34,6 @@
                 </tr>
             </thead>
         <tbody id="tabla_libros">
-        </tbody>
-    </table>
-    </div>
-    <div class="row">
-        <h2 class="display-4 text-uppercase mt-2 mb-5">Videojuegos</h2>
-    </div>
-    <div class="row">
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th class="display-6">Titulo</th>
-                    <th class="display-6">Descripción</th>
-                    <th class="display-6">Defecto</th>
-                    <th class="display-6">Precio</th>
-                </tr>
-            </thead>
-        <tbody id="tabla_videojuegos">
-        </tbody>
-    </table>
-    </div>
-    <div class="row">
-        <h2 class="display-4 text-uppercase mt-2 mb-5">Juegos De Mesa</h2>
-    </div>
-    <div class="row">
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th class="display-6">Titulo</th>
-                    <th class="display-6">Descripción</th>
-                    <th class="display-6">Defecto</th>
-                    <th class="display-6">Precio</th>
-                </tr>
-            </thead>
-        <tbody id="tabla_juegomesa">
         </tbody>
     </table>
     </div>
@@ -80,16 +46,10 @@
 <script>
     ropa=localStorage.getItem('pedido_ropa');
     libros=localStorage.getItem('pedido_libros');
-    videojuegos=localStorage.getItem('pedido_videojuegos');
-    juegosmesa=localStorage.getItem('pedido_juegomesa');
     ropa_parseada=JSON.parse(ropa);
     libros_parseado=JSON.parse(libros);
-    videojuegos_parseado=JSON.parse(videojuegos);
-    juegomesa_parseado=JSON.parse(juegosmesa);
     tabla_ropa(ropa_parseada);
-    tabla_libros(libros_parseado);
-    tabla_videojuegos(videojuegos_parseado);
-    tabla_juegomesa(juegomesa_parseado);
+    tabla_libros(libros_parseado)
    function tabla_ropa(carrito){
 		var tabla = document.getElementById('tabla_prendas')
         
@@ -97,26 +57,26 @@
 			var row = `<tr>
 							<td>${carrito[i].talla}</td>
 							<td>${carrito[i].descripcion}</td>
-							<td>${carrito[i].defecto}</td>
-                            <td>${carrito[i].precio}</td>
+							<td class="fst-italic">${carrito[i].defecto}</td>
+                            <td class="fw-bold">${carrito[i].precio} €</td>
 					  </tr>`
-			tabla.innerHTML += row
+                tabla.innerHTML += row
 
 
-		}
-	}
-    function tabla_libros(carrito){
-		var tabla = document.getElementById('tabla_libros')
-        
-		for (var i = 0; i < carrito.length; i++){
-			var row = `<tr>
+            }
+        }
+        function tabla_libros(carrito) {
+            var tabla = document.getElementById('tabla_libros')
+
+            for (var i = 0; i < carrito.length; i++) {
+                var row = `<tr>
 							<td>${carrito[i].titulo}</td>
                             <td>${carrito[i].autor}</td>
 							<td td style="width:25%; font-size: 12px;">${carrito[i].descripcion}</td>
-							<td>${carrito[i].defecto}</td>
-                            <td>${carrito[i].precio}</td>
+							<td class="fst-italic">${carrito[i].defecto}</td>
+                            <td class="fw-bold">${carrito[i].precio} €</td>
 					  </tr>`
-			tabla.innerHTML += row
+                tabla.innerHTML += row
 
 
 		}
@@ -149,7 +109,7 @@
 			tabla.innerHTML += row
 
 
-		}
-	}
-</script>
-<%-include ("template/footer.ejs")%>
+            }
+        }
+    </script>
+    <%-include ("template/footer.ejs")%>
