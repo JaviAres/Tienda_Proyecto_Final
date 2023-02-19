@@ -39,7 +39,7 @@
                             <td>
                                 <a class="btn btn-dark btn-sm" href="videojuegos/<%= videojuegos.id %>">Editar/Eliminar</a>
                                 <a class="btn btn-warning btn-sm"
-                                    onclick="agregar_carrito('<%= videojuegos.id %>','<%= videojuegos.talla %>','<%= videojuegos.descripcion %>','<%= videojuegos.defecto %>','<%= videojuegos.precio %>')">Agregar
+                                    onclick="agregar_carrito('<%= videojuegos.id %>','<%= videojuegos.titulo %>','<%= videojuegos.descripcion %>','<%= videojuegos.defecto %>','<%= videojuegos.precio %>')">Agregar
                                     a Lista Reparación</a>
                             </td>
 
@@ -77,15 +77,15 @@
             }
         })
 
-        function agregar_carrito(id_prenda, talla_prenda, descripcion_prenda, defecto_prenda, precio_prenda) {
-            var id = id_prenda;
-            var talla = talla_prenda;
-            var descripcion = descripcion_prenda;
-            var defecto = defecto_prenda;
-            var precio = precio_prenda;
-            var prenda = { "id": id, "talla": talla, "descripcion": descripcion, "defecto": defecto, "precio": precio }
-            arrayCarrito.push(prenda);
-            localStorage.setItem("pedido_carrito", JSON.stringify(arrayCarrito));
+        function agregar_carrito(id_videojuego, titulo_videojuego, descripcion_videojuego, defecto_videojuego, precio_videojuego) {
+            var id = id_videojuego;
+            var titulo = titulo_videojuego;
+            var descripcion = descripcion_videojuego;
+            var defecto = defecto_videojuego;
+            var precio = precio_videojuego;
+            var videojuego = { "id": id, "titulo": titulo, "descripcion": descripcion, "defecto": defecto, "precio": precio }
+            arrayCarrito.push(videojuego);
+            localStorage.setItem("pedido_videojuegos", JSON.stringify(arrayCarrito));
         }
     </script>
 

@@ -39,7 +39,7 @@
                             <td>
                                 <a class="btn btn-dark btn-sm" href="juegos_mesa/<%= juegos_mesa.id %>">Editar/Eliminar</a>
                                 <a class="btn btn-warning btn-sm"
-                                    onclick="agregar_carrito('<%= juegos_mesa.id %>','<%= juegos_mesa.talla %>','<%= juegos_mesa.descripcion %>','<%= juegos_mesa.defecto %>','<%= juegos_mesa.precio %>')">Agregar
+                                    onclick="agregar_carrito('<%= juegos_mesa.id %>','<%= juegos_mesa.titulo %>','<%= juegos_mesa.descripcion %>','<%= juegos_mesa.defecto %>','<%= juegos_mesa.precio %>')">Agregar
                                     a Lista Reparación</a>
                             </td>
 
@@ -77,15 +77,15 @@
             }
         })
 
-        function agregar_carrito(id_prenda, talla_prenda, descripcion_prenda, defecto_prenda, precio_prenda) {
-            var id = id_prenda;
-            var talla = talla_prenda;
-            var descripcion = descripcion_prenda;
-            var defecto = defecto_prenda;
-            var precio = precio_prenda;
-            var prenda = { "id": id, "talla": talla, "descripcion": descripcion, "defecto": defecto, "precio": precio }
-            arrayCarrito.push(prenda);
-            localStorage.setItem("pedido_carrito", JSON.stringify(arrayCarrito));
+        function agregar_carrito(id_juegomesa, titulo_juegomesa, descripcion_juegomesa, defecto_juegomesa, precio_juegomesa) {
+            var id = id_juegomesa;
+            var titulo = titulo_juegomesa;
+            var descripcion = descripcion_juegomesa;
+            var defecto = defecto_juegomesa;
+            var precio = precio_juegomesa;
+            var juegomesa = { "id": id, "titulo": titulo, "descripcion": descripcion, "defecto": defecto, "precio": precio }
+            arrayCarrito.push(juegomesa);
+            localStorage.setItem("pedido_juegomesa", JSON.stringify(arrayCarrito));
         }
     </script>
 
