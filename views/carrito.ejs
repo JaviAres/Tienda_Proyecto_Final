@@ -4,7 +4,7 @@
             <h2 class="display-6 text-uppercase text-decoration-underline mt-2 mb-1">Ropa</h2>
         </div>
         <div class="row">
-            <div class="col col-sm-6 col-lg-8">
+            <div class="col col-sm-6 col-lg-8" id="lista_carrito">
                 <div class="row">
                     <table class="table table-striped">
                         <thead class="thead-dark">
@@ -124,33 +124,34 @@
                 tabla.innerHTML += row
 
 
-		}
-	}
-    function tabla_videojuegos(carrito){
-		var tabla = document.getElementById('tabla_videojuegos')
-        
-		for (var i = 0; i < carrito.length; i++){
-			var row = `<tr>
+            }
+        }
+        function tabla_videojuegos(carrito) {
+            var tabla = document.getElementById('tabla_videojuegos')
+
+            for (var i = 0; i < carrito.length; i++) {
+                var row = `<tr>
 							<td>${carrito[i].titulo}</td>
 							<td td style="width:25%; font-size: 12px;">${carrito[i].descripcion}</td>
-							<td>${carrito[i].defecto}</td>
-                            <td>${carrito[i].precio}</td>
+							<td class="fst-italic">${carrito[i].defecto}</td>
+                            <td class="fw-bold">${carrito[i].precio} €</td>
 					  </tr>`
-			tabla.innerHTML += row
+                tabla.innerHTML += row
 
 
-		}
-	}
-    function tabla_juegomesa(carrito){
-		var tabla = document.getElementById('tabla_juegomesa')
-		for (var i = 0; i < carrito.length; i++){
-			var row = `<tr>
+            }
+        }
+        function tabla_juegomesa(carrito) {
+            var tabla = document.getElementById('tabla_juegomesa')
+
+            for (var i = 0; i < carrito.length; i++) {
+                var row = `<tr>
 							<td>${carrito[i].titulo}</td>
 							<td td style="width:25%; font-size: 12px;">${carrito[i].descripcion}</td>
-							<td>${carrito[i].defecto}</td>
-                            <td>${carrito[i].precio}</td>
+							<td class="fst-italic">${carrito[i].defecto}</td>
+                            <td class="fw-bold">${carrito[i].precio} €</td>
 					  </tr>`
-			tabla.innerHTML += row
+                tabla.innerHTML += row
 
 
 		}
