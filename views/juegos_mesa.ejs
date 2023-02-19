@@ -6,58 +6,58 @@
         </div>
         <h1 class="display-4 text-uppercase text-center mt-2 mb-5">Juegos de mesa</h1>
 
-        </div>
         <div class="table-responsive">
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col" class="display-6">Título</th>
-                    <th scope="col" class="display-6">Descripción</th>
-                    <th scope="col" class="display-6">Defecto</th>
-                    <th scope="col" class="display-6">Precio</th>
-                    <th scope="col" class="display-6">Acción</th>
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col" class="display-6">Título</th>
+                        <th scope="col" class="display-6">Descripción</th>
+                        <th scope="col" class="display-6">Defecto</th>
+                        <th scope="col" class="display-6">Precio</th>
+                        <th scope="col" class="display-6">Acción</th>
 
 
-                </tr>
-            </thead>
-            <tbody>
-                <% if (arrayJuegos_mesa.length> 0) { %>
-                    <% arrayJuegos_mesa.forEach(juegos_mesa=> { %>
-                        <tr>
-                            <td class="fw-bold">
-                                <%= juegos_mesa.titulo %>
-                            </td>
-                            <td style="width:25%; font-size: 12px;">
-                                <%= juegos_mesa.descripcion %>
-                            </td>
-                            <td class="fst-italic">
-                                <%= juegos_mesa.defecto %>
-                            </td>
-                            <td class="fw-bold">
-                                <%= juegos_mesa.precio %> €
-                            </td>
-                            <td>
-                                <a class="btn btn-dark btn-sm" href="juegos_mesa/<%= juegos_mesa.id %>">Editar/Eliminar</a>
-                                <a class="btn btn-warning btn-sm"
-                                    onclick="agregar_carrito('<%= juegos_mesa.id %>','<%= juegos_mesa.titulo %>','<%= juegos_mesa.descripcion %>','<%= juegos_mesa.defecto %>','<%= juegos_mesa.precio %>')">Agregar
-                                    a Lista Reparación</a>
-                            </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (arrayJuegos_mesa.length> 0) { %>
+                        <% arrayJuegos_mesa.forEach(juegos_mesa=> { %>
+                            <tr>
+                                <td class="fw-bold">
+                                    <%= juegos_mesa.titulo %>
+                                </td>
+                                <td style="width:25%; font-size: 12px;">
+                                    <%= juegos_mesa.descripcion %>
+                                </td>
+                                <td class="fst-italic">
+                                    <%= juegos_mesa.defecto %>
+                                </td>
+                                <td class="fw-bold">
+                                    <%= juegos_mesa.precio %> €
+                                </td>
+                                <td>
+                                    <a class="btn btn-dark btn-sm"
+                                        href="juegos_mesa/<%= juegos_mesa.id %>">Editar/Eliminar</a>
+                                    <a class="btn btn-warning btn-sm"
+                                        onclick="agregar_carrito('<%= juegos_mesa.id %>','<%= juegos_mesa.titulo %>','<%= juegos_mesa.descripcion %>','<%= juegos_mesa.defecto %>','<%= juegos_mesa.precio %>')">Agregar
+                                        a Lista Reparación</a>
+                                </td>
 
 
-                        </tr>
-                        <% }) %>
-                            <% } %>
-            </tbody>
+                            </tr>
+                            <% }) %>
+                                <% } %>
+                </tbody>
 
-        </table>
-    </div>
+            </table>
+        </div>
         <a class="btn btn-block my-4" id="btn_style" href="/juegos_mesa/crearjuegos_mesa">Crear nuevo juego de mesa</a>
         <a class="btn btn-block my-4" id="btn_style" href="/main">Volver</a>
     </div>
 
 
     <script>
- 
+
         const arrayCarrito = [];
         const btnEliminar = document.querySelector('.btn-danger')
         btnEliminar.addEventListener('click', async () => {

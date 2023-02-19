@@ -1,11 +1,11 @@
 <%- include ("template/header.ejs",{tituloWeb: "Carrito" })%>
     <div class="container-fluid">
 
-        <div class="row">
-            <div class="col col-sm-6 col-lg-8" id="lista_carrito">  
+        <div class="row mt-5">
+            <div class="col col-sm-6 col-lg-8" id="lista_carrito">
                 <div class="row">
                     <h2 class="display-6 text-uppercase text-decoration-underline mt-2 mb-1">Ropa</h2>
-                 </div>
+                </div>
                 <div class="row">
                     <table class="table table-striped">
                         <thead class="thead-dark">
@@ -76,61 +76,56 @@
             <div class="col-sm-6  col-lg-3">
                 <h2 class="display-6 text-uppercase ms-5 mt-2 mb-5">Precio Reparación</h2>
                 <div class="text-center" id="precio_total"></div>
-                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#envioExito" id="boton-reserva">Enviar a Reparar</button>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button type="button" class="btn btn-dark mt-5" data-bs-toggle="modal" data-bs-target="#envioExito"
+                        id="boton-reserva">Enviar a Reparar</button>
                 </div>
             </div>
         </div>
     </div>
-</div>
-   <!-- Modal para reservas con exito -->
-   <div class="modal fade" id="envioExito" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Recibido</h5>
-        </div>
-        <div class="modal-body">
-          Se ha generado un ticket para el envío de los objetos a arreglar.
-        </div>
-        <div class="modal-footer">
-            <a class="btn btn-primary btn-sm" href="/main">Volver a Inicio</a>
-        </button>
-        </div>
-      </div>
     </div>
-  </div>
-<script>
-    ropa=localStorage.getItem('pedido_ropa');
-    libros=localStorage.getItem('pedido_libros');
-    videojuegos=localStorage.getItem('pedido_videojuegos');
-    juegosmesa=localStorage.getItem('pedido_juegomesa');
-    ropa_parseada=JSON.parse(ropa);
-    libros_parseado=JSON.parse(libros);
-    videojuegos_parseado=JSON.parse(videojuegos);
-    juegomesa_parseado=JSON.parse(juegosmesa);  
-   /*prueba(libros_parseado);
-    function prueba(prueba){
+    </div>
+    <!-- Modal para reservas con exito -->
+    <div class="modal fade" id="envioExito" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Recibido</h5>
+                </div>
+                <div class="modal-body">
+                    Se ha generado un ticket para el envío de los objetos a arreglar.
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-primary btn-sm" href="/main">Volver a Inicio</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        ropa = localStorage.getItem('pedido_ropa');
+        libros = localStorage.getItem('pedido_libros');
+        videojuegos = localStorage.getItem('pedido_videojuegos');
+        juegosmesa = localStorage.getItem('pedido_juegomesa');
+        ropa_parseada = JSON.parse(ropa);
+        libros_parseado = JSON.parse(libros);
+        videojuegos_parseado = JSON.parse(videojuegos);
+        juegomesa_parseado = JSON.parse(juegosmesa);
 
-        if(prueba===null){
-            console.log("noesta");
-        }else{
-            console.log("esta");
-        }
-    } */
-    
-    tabla_ropa(ropa_parseada);
-    tabla_libros(libros_parseado);
-    tabla_videojuegos(videojuegos_parseado);
-    tabla_juegomesa(juegomesa_parseado);
-    suma_total(ropa_parseada,libros_parseado,videojuegos_parseado,juegomesa_parseado);
-  
-   function tabla_ropa(carrito){
-		var tabla = document.getElementById('tabla_prendas')
-        if(carrito===null){
-            tabla.innerHTML=`<div> No Procede <div>`;
-        }else{
-                for (var i = 0; i < carrito.length; i++){
-                var row = `<tr>
+        tabla_ropa(ropa_parseada);
+        tabla_libros(libros_parseado);
+        tabla_videojuegos(videojuegos_parseado);
+        tabla_juegomesa(juegomesa_parseado);
+        suma_total(ropa_parseada, libros_parseado, videojuegos_parseado, juegomesa_parseado);
+
+        function tabla_ropa(carrito) {
+            var tabla = document.getElementById('tabla_prendas')
+            if (carrito === null) {
+                tabla.innerHTML = `<div> No Procede <div>`;
+            } else {
+                for (var i = 0; i < carrito.length; i++) {
+                    var row = `<tr>
                                 <td>${carrito[i].talla}</td>
                                 <td>${carrito[i].descripcion}</td>
                                 <td class="fst-italic">${carrito[i].defecto}</td>
@@ -144,9 +139,9 @@
         }
         function tabla_libros(carrito) {
             var tabla = document.getElementById('tabla_libros')
-            if(carrito===null){
-            tabla.innerHTML=`<div> No Procede <div>`;
-        }else{
+            if (carrito === null) {
+                tabla.innerHTML = `<div> No Procede <div>`;
+            } else {
                 for (var i = 0; i < carrito.length; i++) {
                     var row = `<tr>
                                 <td>${carrito[i].titulo}</td>
@@ -163,9 +158,9 @@
         }
         function tabla_videojuegos(carrito) {
             var tabla = document.getElementById('tabla_videojuegos')
-            if(carrito===null){
-            tabla.innerHTML=`<div> No Procede <div>`;
-        }else{
+            if (carrito === null) {
+                tabla.innerHTML = `<div> No Procede <div>`;
+            } else {
                 for (var i = 0; i < carrito.length; i++) {
                     var row = `<tr>
                                 <td>${carrito[i].titulo}</td>
@@ -175,15 +170,15 @@
                         </tr>`
                     tabla.innerHTML += row
 
-                    
-                        }
-                    }
+
+                }
+            }
         }
         function tabla_juegomesa(carrito) {
             var tabla = document.getElementById('tabla_juegomesa')
-            if(carrito===null){
-            tabla.innerHTML=`<div> No Procede <div>`;
-        }else{
+            if (carrito === null) {
+                tabla.innerHTML = `<div> No Procede <div>`;
+            } else {
                 for (var i = 0; i < carrito.length; i++) {
                     var row = `<tr>
                                 <td>${carrito[i].titulo}</td>
@@ -194,57 +189,57 @@
                     tabla.innerHTML += row
 
 
+                }
             }
         }
-	}
 
-    function suma_total(ropa_parseada,libros_parseado,videojuegos_parseado,juegomesa_parseado){
-        var precio_total=document.getElementById("precio_total");
-       
-        var precio_suma=0;
-        /* condicional ropa*/
-        if(ropa_parseada===null){
-            precio_suma+=0;
-        }else{
-        for (var i = 0; i < ropa_parseada.length; i++) {
+        function suma_total(ropa_parseada, libros_parseado, videojuegos_parseado, juegomesa_parseado) {
+            var precio_total = document.getElementById("precio_total");
 
-            precio_suma+=parseFloat(ropa_parseada[i].precio);
+            var precio_suma = 0;
+            /* condicional ropa*/
+            if (ropa_parseada === null) {
+                precio_suma += 0;
+            } else {
+                for (var i = 0; i < ropa_parseada.length; i++) {
 
-		}
-    }
-    /*condicional libros*/
-    if(libros_parseado===null){
-            precio_suma+=0;
-        }else{
-        for (var i = 0; i < libros_parseado.length; i++) {
+                    precio_suma += parseFloat(ropa_parseada[i].precio);
 
-        precio_suma+=parseFloat(libros_parseado[i].precio);
+                }
+            }
+            /*condicional libros*/
+            if (libros_parseado === null) {
+                precio_suma += 0;
+            } else {
+                for (var i = 0; i < libros_parseado.length; i++) {
 
-        }
-    }
-    /*condicional videojuegos*/
-    if(videojuegos_parseado===null){
-            precio_suma+=0;
-        }else{
-        for (var i = 0; i < videojuegos_parseado.length; i++) {
+                    precio_suma += parseFloat(libros_parseado[i].precio);
 
-        precio_suma+=parseFloat(videojuegos_parseado[i].precio);
+                }
+            }
+            /*condicional videojuegos*/
+            if (videojuegos_parseado === null) {
+                precio_suma += 0;
+            } else {
+                for (var i = 0; i < videojuegos_parseado.length; i++) {
 
-        }
-    }
-    /*condicional DnD*/
-    if(juegomesa_parseado===null){
-            precio_suma+=0;
-        }else{
-            for (var i = 0; i < juegomesa_parseado.length; i++) {
+                    precio_suma += parseFloat(videojuegos_parseado[i].precio);
 
-            precio_suma+=parseFloat(juegomesa_parseado[i].precio);
+                }
+            }
+            /*condicional DnD*/
+            if (juegomesa_parseado === null) {
+                precio_suma += 0;
+            } else {
+                for (var i = 0; i < juegomesa_parseado.length; i++) {
+
+                    precio_suma += parseFloat(juegomesa_parseado[i].precio);
+
+                }
 
             }
-           
-    } 
-            div_suma=`<div class="fw-bold"> ${precio_suma} €</div>`
-            precio_total.innerHTML+=div_suma;
-    }
-</script>
-<%-include ("template/footer.ejs")%>
+            div_suma = `<div class="fw-bold fs-2"> ${precio_suma} €</div>`
+            precio_total.innerHTML += div_suma;
+        }
+    </script>
+    <%-include ("template/footer.ejs")%>

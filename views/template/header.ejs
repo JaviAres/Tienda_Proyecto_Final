@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= tituloWeb %></title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%= tituloWeb %>
+  </title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="/main" id="NombreTienda" title="Wallabob">Wallabob</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                  <a class="nav-link" href="/ropa" id="navbarselect">Ropa</a>
-                  <a class="nav-link" href="/libros" id="navbarselect">Libros</a>
-                  <a class="nav-link" href="/videojuegos" id="navbarselect">Videojuegos</a>
-                  <a class="nav-link" href="/juegos_mesa" id="navbarselect">Juegos de Mesa</a>
-                </div>
-              </div>
-              <a href="/carrito" title="carrito"><i class="fa fa-shopping-cart link-dark" aria-hidden="true" style="font-size:36px;"></i></a>
-            </div>
-          </nav>
-    </header>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/main" id="NombreTienda" title="Wallabob">Wallabob</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!--When Mobile Collapse-->
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link" href="/ropa" id="navbarselect">Ropa</a>
+            <a class="nav-link" href="/libros" id="navbarselect">Libros</a>
+            <a class="nav-link" href="/videojuegos" id="navbarselect">Videojuegos</a>
+            <a class="nav-link" href="/juegos_mesa" id="navbarselect">Juegos de Mesa</a>
+          </div>
+        </div>
+        <a href="/carrito" title="carrito"><i class="fa fa-shopping-cart link-dark" aria-hidden="true"
+            style="font-size:36px;"></i></a>
+      </div>
+    </nav>
+  </header>

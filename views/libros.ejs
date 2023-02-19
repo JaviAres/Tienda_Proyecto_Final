@@ -7,6 +7,16 @@
         <h1 class="display-4 text-uppercase text-center mt-2 mb-5">Libros</h1>
 
         <div class="table-responsive">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col" class="display-6">Título</th>
+                        <th scope="col" class="display-6">Autor</th>
+                        <th scope="col" class="display-6">Descripción</th>
+                        <th scope="col" class="display-6">Defecto</th>
+                        <th scope="col" class="display-6">Precio</th>
+                        <th scope="col" class="display-6">Acción</th>
+        <div class="table-responsive">
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
@@ -18,49 +28,49 @@
                     <th scope="col" class="display-6">Acción</th>
 
 
-                </tr>
-            </thead>
-            <tbody>
-                <% if (arrayLibros.length> 0) { %>
-                    <% arrayLibros.forEach(libros=> { %>
-                        <tr>
-                            <td class="fw-bold">
-                                <%= libros.titulo %>
-                            </td>
-                            <td>
-                                <%= libros.autor %>
-                            </td>
-                            <td style="width:25%; font-size: 12px;">
-                                <%= libros.descripcion %>
-                            </td>
-                            <td class="fst-italic">
-                                <%= libros.defecto %>
-                            </td>
-                            <td class="fw-bold">
-                                <%= libros.precio %> €
-                            </td>
-                            <td>
-                                <a class="btn btn-dark btn-sm" href="libros/<%= libros.id %>">Editar/Eliminar</a>
-                                <a class="btn btn-warning btn-sm"
-                                    onclick="agregar_carrito('<%= libros.id %>','<%= libros.titulo %>','<%= libros.autor %>','<%= libros.descripcion %>','<%= libros.defecto %>','<%= libros.precio %>')">Agregar
-                                    a Lista Reparación</a>
-                            </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (arrayLibros.length> 0) { %>
+                        <% arrayLibros.forEach(libros=> { %>
+                            <tr>
+                                <td class="fw-bold">
+                                    <%= libros.titulo %>
+                                </td>
+                                <td>
+                                    <%= libros.autor %>
+                                </td>
+                                <td style="width:25%; font-size: 12px;">
+                                    <%= libros.descripcion %>
+                                </td>
+                                <td class="fst-italic">
+                                    <%= libros.defecto %>
+                                </td>
+                                <td class="fw-bold">
+                                    <%= libros.precio %> €
+                                </td>
+                                <td>
+                                    <a class="btn btn-dark btn-sm" href="libros/<%= libros.id %>">Editar/Eliminar</a>
+                                    <a class="btn btn-warning btn-sm"
+                                        onclick="agregar_carrito('<%= libros.id %>','<%= libros.titulo %>','<%= libros.autor %>','<%= libros.descripcion %>','<%= libros.defecto %>','<%= libros.precio %>')">Agregar
+                                        a Lista Reparación</a>
+                                </td>
 
 
-                        </tr>
-                        <% }) %>
-                            <% } %>
-            </tbody>
+                            </tr>
+                            <% }) %>
+                                <% } %>
+                </tbody>
 
-        </table>
-    </div>
+            </table>
+        </div>
         <a class="btn btn-block my-4" id="btn_style" href="/libros/crearlibros">Crear nuevo libro</a>
         <a class="btn btn-block my-4" id="btn_style" href="/main">Volver</a>
     </div>
 
 
     <script>
- 
+
         const arrayCarrito = [];
         const btnEliminar = document.querySelector('.btn-danger')
         btnEliminar.addEventListener('click', async () => {
@@ -81,14 +91,14 @@
             }
         })
 
-        function agregar_carrito(id_libro, titulo_libro,autor_libro, descripcion_libro, defecto_libro, precio_libro) {
+        function agregar_carrito(id_libro, titulo_libro, autor_libro, descripcion_libro, defecto_libro, precio_libro) {
             var id = id_libro;
             var titulo = titulo_libro;
             var autor = autor_libro;
             var descripcion = descripcion_libro;
             var defecto = defecto_libro;
             var precio = precio_libro;
-            var libro = { "id": id, "titulo": titulo, "autor":autor, "descripcion": descripcion, "defecto": defecto, "precio": precio }
+            var libro = { "id": id, "titulo": titulo, "autor": autor, "descripcion": descripcion, "defecto": defecto, "precio": precio }
             arrayCarrito.push(libro);
             localStorage.setItem("pedido_libros", JSON.stringify(arrayCarrito));
         }
