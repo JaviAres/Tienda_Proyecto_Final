@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%- include ("template/header.ejs",{tituloWeb: "Carrito"})%>
 <div class="container-fluid">
     <div class="row">
@@ -26,7 +27,7 @@
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
-                    <th class="display-6">Titutlo</th>
+                    <th class="display-6">Titulo</th>
                     <th class="display-6">Autor</th>
                     <th class="display-6">Descripción</th>
                     <th class="display-6">Defecto</th>
@@ -37,24 +38,121 @@
         </tbody>
     </table>
     </div>
+    <div class="row">
+        <h2 class="display-4 text-uppercase mt-2 mb-5">Videojuegos</h2>
+    </div>
+    <div class="row">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th class="display-6">Titulo</th>
+                    <th class="display-6">Descripción</th>
+                    <th class="display-6">Defecto</th>
+                    <th class="display-6">Precio</th>
+                </tr>
+            </thead>
+        <tbody id="tabla_videojuegos">
+        </tbody>
+    </table>
+    </div>
+    <div class="row">
+        <h2 class="display-4 text-uppercase mt-2 mb-5">Juegos De Mesa</h2>
+    </div>
+    <div class="row">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th class="display-6">Titulo</th>
+                    <th class="display-6">Descripción</th>
+                    <th class="display-6">Defecto</th>
+                    <th class="display-6">Precio</th>
+                </tr>
+            </thead>
+        <tbody id="tabla_juegomesa">
+        </tbody>
+    </table>
+    </div>
+=======
+<%- include ("template/header.ejs",{tituloWeb: "Carrito" })%>
+    <div class="container-fluid">
+        <div class="row">
+            <h2 class="display-6 text-uppercase text-decoration-underline mt-2 mb-1">Ropa</h2>
+>>>>>>> 2e64291bbaf571ee84d43dea7a06c0ac3322b0b4
         </div>
-        <div class="col-sm-6  col-lg-3">
-            <h2 class="display-4 text-uppercase mt-2 mb-5">Precio</h2>
+        <div class="row">
+            <div class="col col-sm-6 col-lg-8">
+                <div class="row">
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th class="display-6">Talla</th>
+                                <th class="display-6">Descripción</th>
+                                <th class="display-6">Defecto</th>
+                                <th class="display-6">Precio</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla_prendas">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <h2 class="display-6 text-uppercase text-decoration-underline mt-5 mb-1">Libros</h2>
+                </div>
+                <div class="row">
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th class="display-6">Título</th>
+                                <th class="display-6">Autor</th>
+                                <th class="display-6">Descripción</th>
+                                <th class="display-6">Defecto</th>
+                                <th class="display-6">Precio</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla_libros">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-sm-6  col-lg-3">
+                <h2 class="display-6 text-uppercase ms-5 mt-2 mb-5">Precio Reparación</h2>
+            </div>
         </div>
     </div>
+<<<<<<< HEAD
 </div>
 <script>
     ropa=localStorage.getItem('pedido_ropa');
     libros=localStorage.getItem('pedido_libros');
+    videojuegos=localStorage.getItem('pedido_videojuegos');
+    juegosmesa=localStorage.getItem('pedido_juegomesa');
     ropa_parseada=JSON.parse(ropa);
     libros_parseado=JSON.parse(libros);
+    videojuegos_parseado=JSON.parse(videojuegos);
+    juegomesa_parseado=JSON.parse(juegosmesa);
     tabla_ropa(ropa_parseada);
-    tabla_libros(libros_parseado)
+    tabla_libros(libros_parseado);
+    tabla_videojuegos(videojuegos_parseado);
+    tabla_juegomesa(juegomesa_parseado);
    function tabla_ropa(carrito){
 		var tabla = document.getElementById('tabla_prendas')
         
 		for (var i = 0; i < carrito.length; i++){
 			var row = `<tr>
+=======
+    <script>
+        ropa = localStorage.getItem('pedido_ropa');
+        libros = localStorage.getItem('pedido_libros');
+        ropa_parseada = JSON.parse(ropa);
+        libros_parseado = JSON.parse(libros);
+        tabla_ropa(ropa_parseada);
+        tabla_libros(libros_parseado)
+        function tabla_ropa(carrito) {
+            var tabla = document.getElementById('tabla_prendas')
+
+            for (var i = 0; i < carrito.length; i++) {
+                var row = `<tr>
+>>>>>>> 2e64291bbaf571ee84d43dea7a06c0ac3322b0b4
 							<td>${carrito[i].talla}</td>
 							<td>${carrito[i].descripcion}</td>
 							<td class="fst-italic">${carrito[i].defecto}</td>
@@ -79,6 +177,7 @@
                 tabla.innerHTML += row
 
 
+<<<<<<< HEAD
 		}
 	}
     function tabla_videojuegos(carrito){
@@ -109,7 +208,13 @@
 			tabla.innerHTML += row
 
 
+		}
+	}
+</script>
+<%-include ("template/footer.ejs")%>
+=======
             }
         }
     </script>
     <%-include ("template/footer.ejs")%>
+>>>>>>> 2e64291bbaf571ee84d43dea7a06c0ac3322b0b4
