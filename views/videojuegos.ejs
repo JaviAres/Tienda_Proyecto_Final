@@ -6,56 +6,58 @@
         </div>
         <h1 class="display-4 text-uppercase text-center mt-2 mb-5">Videojuegos</h1>
 
-
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col" class="display-6">Título</th>
-                    <th scope="col" class="display-6">Descripción</th>
-                    <th scope="col" class="display-6">Defecto</th>
-                    <th scope="col" class="display-6">Precio</th>
-                    <th scope="col" class="display-6">Acción</th>
-
-
-                </tr>
-            </thead>
-            <tbody>
-                <% if (arrayVideojuegos.length> 0) { %>
-                    <% arrayVideojuegos.forEach(videojuegos=> { %>
-                        <tr>
-                            <td class="fw-bold">
-                                <%= videojuegos.titulo %>
-                            </td>
-                            <td style="width:25%; font-size: 12px;">
-                                <%= videojuegos.descripcion %>
-                            </td>
-                            <td class="fst-italic">
-                                <%= videojuegos.defecto %>
-                            </td>
-                            <td class="fw-bold">
-                                <%= videojuegos.precio %> €
-                            </td>
-                            <td>
-                                <a class="btn btn-dark btn-sm" href="videojuegos/<%= videojuegos.id %>">Editar/Eliminar</a>
-                                <a class="btn btn-warning btn-sm"
-                                    onclick="agregar_carrito('<%= videojuegos.id %>','<%= videojuegos.titulo %>','<%= videojuegos.descripcion %>','<%= videojuegos.defecto %>','<%= videojuegos.precio %>')">Agregar
-                                    a Lista Reparación</a>
-                            </td>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col" class="display-6">Título</th>
+                        <th scope="col" class="display-6">Descripción</th>
+                        <th scope="col" class="display-6">Defecto</th>
+                        <th scope="col" class="display-6">Precio</th>
+                        <th scope="col" class="display-6">Acción</th>
 
 
-                        </tr>
-                        <% }) %>
-                            <% } %>
-            </tbody>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (arrayVideojuegos.length> 0) { %>
+                        <% arrayVideojuegos.forEach(videojuegos=> { %>
+                            <tr>
+                                <td class="fw-bold">
+                                    <%= videojuegos.titulo %>
+                                </td>
+                                <td style="width:25%; font-size: 12px;">
+                                    <%= videojuegos.descripcion %>
+                                </td>
+                                <td class="fst-italic">
+                                    <%= videojuegos.defecto %>
+                                </td>
+                                <td class="fw-bold">
+                                    <%= videojuegos.precio %> €
+                                </td>
+                                <td>
+                                    <a class="btn btn-dark btn-sm"
+                                        href="videojuegos/<%= videojuegos.id %>">Editar/Eliminar</a>
+                                    <a class="btn btn-warning btn-sm"
+                                        onclick="agregar_carrito('<%= videojuegos.id %>','<%= videojuegos.titulo %>','<%= videojuegos.descripcion %>','<%= videojuegos.defecto %>','<%= videojuegos.precio %>')">Agregar
+                                        a Lista Reparación</a>
+                                </td>
 
-        </table>
+
+                            </tr>
+                            <% }) %>
+                                <% } %>
+                </tbody>
+
+            </table>
+        </div>
         <a class="btn btn-block my-4" id="btn_style" href="/videojuegos/crearvideojuegos">Crear nuevo juego</a>
         <a class="btn btn-block my-4" id="btn_style" href="/main">Volver</a>
     </div>
 
 
     <script>
- 
+
         const arrayCarrito = [];
         const btnEliminar = document.querySelector('.btn-danger')
         btnEliminar.addEventListener('click', async () => {
